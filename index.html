@@ -73,7 +73,7 @@
 
         .hero-banner {
             width: 100%; height: 250px; border-radius: 22px;
-            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(8,8,12,0.96) 100%), url('https://download1592.mediafire.com/k46gkopg94zga-36lbFlAtp7lJgZpttUuET5M_wfjO96TtIEtXpswuLgi8eGw7F1N4oMxTyMl06qUPh8j4i3nkHCjJARbPbNnAa6DurIKe7TkKtbtVvEejToJgffIef3L1i5ZwGlshnvD35QKnRbqMvb-cv2BhIlCLHREh4H-Oa7o1Q/3lhtjfici83q0sd/20261018_144948.jpg') center/cover no-repeat;
+            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(8,8,12,0.96) 100%), url('https://ei.phncdn.com/pics/users/0024/5807/0141/cover31143515/(m=eRSa4qFxcWaAb)(mh=NL_-gLc2D3h9AHS0)1323x270.jpg') center/cover no-repeat;
             display: flex; align-items: flex-end; padding: 22px; margin-bottom: 25px; border: 1px solid var(--card-border);
             position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.6);
         }
@@ -87,10 +87,10 @@
         .channels-scroll { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; }
         .channels-scroll::-webkit-scrollbar { display: none; }
         
-        .channel-card-mini { display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; min-width: 80px; transition: transform 0.2s; }
+        .channel-card-mini { display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; min-width: 85px; transition: transform 0.2s; }
         .channel-card-mini:hover { transform: translateY(-4px); }
         .channel-mini-img { width: 62px; height: 62px; border-radius: 50%; background-size: cover; background-position: center; border: 2px solid var(--primary); box-shadow: 0 4px 12px rgba(255, 127, 80, 0.3); }
-        .channel-mini-name { font-size: 11px; font-weight: 700; color: var(--text-main); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 80px; }
+        .channel-mini-name { font-size: 11px; font-weight: 700; color: var(--text-main); text-align: center; white-space: nowrap; display: flex; align-items: center; gap: 3px; }
 
         .categories-scroll { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 20px; scrollbar-width: none; }
         .categories-scroll::-webkit-scrollbar { display: none; }
@@ -340,23 +340,23 @@
                 <div class="channels-scroll">
                     <div class="channel-card-mini" onclick="openProfile('comatozze')">
                         <div class="channel-mini-img" style="background-image:url('https://ei.phncdn.com/pics/users/0024/5807/0141/avatar95302765/(m=ewILGCjadOf)(mh=n7tIeIoHniVFwhIe)200x200.jpg'); border-color:#ffd700;"></div>
-                        <span class="channel-mini-name">comatozze 🏆</span>
+                        <span class="channel-mini-name">comatozze <span class="blue-tick">✓</span></span>
                     </div>
                     <div class="channel-card-mini" onclick="openProfile('2PBVAGE')">
                         <div class="channel-mini-img" style="background-image:url('https://cdn.phototourl.com/member/2026-10-15-83266f74-97b3-42ff-82ee-e8e955a628ca.jpg'); border-color:#ffd700;"></div>
-                        <span class="channel-mini-name">2PBVAGE ✓</span>
+                        <span class="channel-mini-name">2PBVAGE <span class="yellow-tick">✓</span></span>
                     </div>
                     <div class="channel-card-mini" onclick="openProfile('Aishah Sofey')">
                         <div class="channel-mini-img" style="background-image:url('https://static-cdn.jtvnw.net/jtv_user_pictures/e95e4603-8868-4620-970b-f80792268487-profile_image-300x300.png');"></div>
-                        <span class="channel-mini-name">Aishah ✓</span>
+                        <span class="channel-mini-name">Aishah <span class="blue-tick">✓</span></span>
                     </div>
                     <div class="channel-card-mini" onclick="openProfile('Sophie Rain')">
                         <div class="channel-mini-img" style="background-image:url('https://scontent.cdninstagram.com/v/t51.82787-19/757236652_18031740167954124_3621442071429323987_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=1&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=gn8dFciWLxIQ7kNvwGgkQsb&_nc_oc=Ado8K58AHrIya-rmZrx5X9EmNENQ2K-TGmSbkQSwFq7iMijOj9oiD3n6Etdd3__27fc&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=RmCxMZn-cevPP3FeoOhkSA&_nc_ss=7b689&oh=00_AQNVsiANvtX14dfUC8Qn2MFfKsxy_TTVijSvazdSQrJsuw&oe=6AD92A9E');"></div>
-                        <span class="channel-mini-name">Sophie ✓</span>
+                        <span class="channel-mini-name">Sophie <span class="blue-tick">✓</span></span>
                     </div>
                     <div class="channel-card-mini" onclick="openProfile('Sweetie Fox')">
                         <div class="channel-mini-img" style="background-image:url('https://ei.phncdn.com/(m=ewILGCjadOf)(mh=59qrk8LnBE3Z9kTL)43ca43da-b27e-42f2-b237-40c5c13261b1.jpg');"></div>
-                        <span class="channel-mini-name">Sweetie 🏆</span>
+                        <span class="channel-mini-name">Sweetie <span class="blue-tick">✓</span></span>
                     </div>
                 </div>
             </div>
@@ -388,7 +388,7 @@
             <h2 id="v-title" style="font-size:18px;"></h2>
             <div style="font-size:12px; color:var(--text-sub);" id="v-date"></div>
             <div class="player-box">
-                <iframe id="v-iframe" src="about:blank" loading="eager" allow="autoplay; encrypted-media; picture-in-picture; fullscreen"></iframe>
+                <iframe id="v-iframe" src="about:blank" loading="eager" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
             </div>
             
             <div id="v-author-card" style="background:var(--card-bg); padding:12px 15px; border-radius:12px; border:1px solid var(--card-border); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;"></div>
@@ -483,7 +483,7 @@
             v8: {
                 title: "Kız Arkadaşımın Annesi Beklenenden Daha Erken Eve Geldi...",
                 url: "https://voe.sx/e/19ocub2our1r",
-                thumb: "https://download1592.mediafire.com/k46gkopg94zga-36lbFlAtp7lJgZpttUuET5M_wfjO96TtIEtXpswuLgi8eGw7F1N4oMxTyMl06qUPh8j4i3nkHCjJARbPbNnAa6DurIKe7TkKtbtVvEejToJgffIef3L1i5ZwGlshnvD35QKnRbqMvb-cv2BhIlCLHREh4H-Oa7o1Q/3lhtjfici83q0sd/20261018_144948.jpg",
+                thumb: "https://ei.phncdn.com/pics/users/0024/5807/0141/cover31143515/(m=eRSa4qFxcWaAb)(mh=NL_-gLc2D3h9AHS0)1323x270.jpg",
                 author: "comatozze",
                 avatar: COMATTOZE_AVATAR,
                 date: "18 Ekim 2026",
