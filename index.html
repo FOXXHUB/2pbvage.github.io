@@ -145,8 +145,8 @@
         .drawer-nav-item:hover { background: rgba(255, 127, 80, 0.18); border-color: rgba(255, 127, 80, 0.4); color: #fff; transform: translateX(5px); }
         .drawer-chip-tag { font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 10px; background: var(--input-bg); color: var(--text-sub); }
 
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 9999999 !important; display: none; align-items: center; justify-content: center; padding: 20px; }
-        .modal-card { background: var(--glass); border: 1px solid var(--card-border); border-radius: 22px; width: 100%; max-width: 420px; padding: 26px; text-align: center; position: relative; color: var(--text-main); max-height: 90vh; overflow-y: auto; box-shadow: 0 10px 40px rgba(0,0,0,0.95); z-index: 10000000 !important; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 9999999 !important; display: none; align-items: center; justify-content: center; padding: 20px; pointer-events: auto; }
+        .modal-card { background: var(--glass); border: 1px solid var(--card-border); border-radius: 22px; width: 100%; max-width: 420px; padding: 26px; text-align: center; position: relative; color: var(--text-main); max-height: 90vh; overflow-y: auto; box-shadow: 0 10px 40px rgba(0,0,0,0.95); z-index: 10000000 !important; pointer-events: auto; }
         .modal-close { position: absolute; top: 16px; right: 16px; color: var(--text-sub); font-size: 20px; cursor: pointer; transition: 0.2s; }
         .modal-close:hover { color: var(--primary); }
         .form-input { width: 100%; background: var(--input-bg); border: 1px solid var(--card-border); color: var(--text-main); padding: 12px; border-radius: 10px; font-size: 13px; outline: none; margin-bottom: 12px; transition: 0.2s; }
@@ -177,12 +177,12 @@
 <body>
 
     <div id="age-modal" class="modal-overlay" style="display:flex;">
-        <div class="modal-card" style="border: 2px solid var(--primary); pointer-events: auto;">
+        <div class="modal-card" style="border: 2px solid var(--primary);">
             <div style="background:var(--primary); color:#fff; font-weight:900; font-size:22px; width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 16px auto; box-shadow:0 0 15px rgba(255,127,80,0.5);">18+</div>
             <h2 style="font-size:19px; margin-bottom:10px;">Yetişkin İçerik Uyarısı</h2>
             <p style="font-size:13px; color:var(--text-sub); line-height:1.5; margin-bottom:22px;">Bu platform yetişkinlere yönelik içerikler barındırmaktadır. Devam edebilmek için 18 yaşından büyük olduğunuzu onaylamanız gerekmektedir.</p>
-            <button class="action-btn" id="btn-age-accept" onclick="acceptAgeWarning()" style="width:100%; padding:14px; font-size:14px; cursor:pointer; position:relative; z-index:10000001;">18 Yaşından Büyüğüm (Giriş Yap)</button>
-            <button id="btn-age-decline" onclick="declineAgeWarning()" style="background:transparent; color:var(--text-sub); border:none; padding:10px; font-size:12px; cursor:pointer; margin-top:10px; position:relative; z-index:10000001;">Ayrıl (18 Yaşından Küçüğüm)</button>
+            <button class="action-btn" id="btn-age-accept" onclick="acceptAgeWarning()" style="width:100%; padding:14px; font-size:14px; cursor:pointer; position:relative; z-index:10000005; touch-action:manipulation;">18 Yaşından Büyüğüm (Giriş Yap)</button>
+            <button id="btn-age-decline" onclick="declineAgeWarning()" style="background:transparent; color:var(--text-sub); border:none; padding:10px; font-size:12px; cursor:pointer; margin-top:10px; position:relative; z-index:10000005; touch-action:manipulation;">Ayrıl (18 Yaşından Küçüğüm)</button>
         </div>
     </div>
 
@@ -201,5 +201,4 @@
             </form>
 
             <form id="form-register" style="display:none;" onsubmit="handleRegister(event)">
-                <input type="text" id="reg-username" class="form-input" placeholder="Kullanıcı Adı" required>
-         
+                <input type="text" id="reg-
