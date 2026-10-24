@@ -145,20 +145,8 @@
         .drawer-nav-item:hover { background: rgba(255, 127, 80, 0.18); border-color: rgba(255, 127, 80, 0.4); color: #fff; transform: translateX(5px); }
         .drawer-chip-tag { font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 10px; background: var(--input-bg); color: var(--text-sub); }
 
-        #age-modal { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.96); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); 
-            z-index: 2147483647 !important; display: flex; align-items: center; justify-content: center; padding: 20px; 
-            pointer-events: auto !important;
-        }
-        .modal-card { 
-            background: var(--glass); border: 1px solid var(--card-border); border-radius: 22px; 
-            width: 100%; max-width: 420px; padding: 26px; text-align: center; position: relative; 
-            color: var(--text-main); max-height: 90vh; overflow-y: auto; box-shadow: 0 10px 40px rgba(0,0,0,0.95); 
-            z-index: 2147483647 !important; pointer-events: auto !important;
-        }
-        
-        .modal-overlay:not(#age-modal) { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 999999; display: none; align-items: center; justify-content: center; padding: 20px; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 9999999 !important; display: none; align-items: center; justify-content: center; padding: 20px; }
+        .modal-card { background: var(--glass); border: 1px solid var(--card-border); border-radius: 22px; width: 100%; max-width: 420px; padding: 26px; text-align: center; position: relative; color: var(--text-main); max-height: 90vh; overflow-y: auto; box-shadow: 0 10px 40px rgba(0,0,0,0.95); z-index: 10000000 !important; }
         .modal-close { position: absolute; top: 16px; right: 16px; color: var(--text-sub); font-size: 20px; cursor: pointer; transition: 0.2s; }
         .modal-close:hover { color: var(--primary); }
         .form-input { width: 100%; background: var(--input-bg); border: 1px solid var(--card-border); color: var(--text-main); padding: 12px; border-radius: 10px; font-size: 13px; outline: none; margin-bottom: 12px; transition: 0.2s; }
@@ -188,13 +176,13 @@
 </head>
 <body>
 
-    <div id="age-modal" style="display:flex;">
-        <div class="modal-card" style="border: 2px solid var(--primary);">
+    <div id="age-modal" class="modal-overlay" style="display:flex;">
+        <div class="modal-card" style="border: 2px solid var(--primary); pointer-events: auto;">
             <div style="background:var(--primary); color:#fff; font-weight:900; font-size:22px; width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 16px auto; box-shadow:0 0 15px rgba(255,127,80,0.5);">18+</div>
             <h2 style="font-size:19px; margin-bottom:10px;">Yetişkin İçerik Uyarısı</h2>
             <p style="font-size:13px; color:var(--text-sub); line-height:1.5; margin-bottom:22px;">Bu platform yetişkinlere yönelik içerikler barındırmaktadır. Devam edebilmek için 18 yaşından büyük olduğunuzu onaylamanız gerekmektedir.</p>
-            <button class="action-btn" id="btn-age-accept" onclick="acceptAgeWarning()" ontouchstart="acceptAgeWarning()" style="width:100%; padding:16px; font-size:15px; cursor:pointer; position:relative; z-index:2147483647; touch-action:manipulation; pointer-events:auto;">18 Yaşından Büyüğüm (Giriş Yap)</button>
-            <button id="btn-age-decline" onclick="declineAgeWarning()" ontouchstart="declineAgeWarning()" style="background:transparent; color:var(--text-sub); border:none; padding:12px; font-size:12px; cursor:pointer; margin-top:10px; position:relative; z-index:2147483647; touch-action:manipulation; pointer-events:auto;">Ayrıl (18 Yaşından Küçüğüm)</button>
+            <button class="action-btn" id="btn-age-accept" onclick="acceptAgeWarning()" style="width:100%; padding:14px; font-size:14px; cursor:pointer; position:relative; z-index:10000001;">18 Yaşından Büyüğüm (Giriş Yap)</button>
+            <button id="btn-age-decline" onclick="declineAgeWarning()" style="background:transparent; color:var(--text-sub); border:none; padding:10px; font-size:12px; cursor:pointer; margin-top:10px; position:relative; z-index:10000001;">Ayrıl (18 Yaşından Küçüğüm)</button>
         </div>
     </div>
 
@@ -442,22 +430,22 @@
         var ADSTERRA_SMARTLINK = "https://auctionr.org/4/f52b96b557fb75ab92ceff2ae0017f80";
 
         function checkAgeStorage() {
-            var isAdult = localStorage.getItem('foxxhub_18plus');
+            var isAdult = localStorage.getItem('2pbvage_18plus');
             var ageModal = document.getElementById('age-modal');
             if (isAdult === 'true') {
-                if (ageModal) ageModal.style.setProperty('display', 'none', 'important');
+                if (ageModal) ageModal.style.display = 'none';
             } else {
-                if (ageModal) ageModal.style.setProperty('display', 'flex', 'important');
+                if (ageModal) ageModal.style.display = 'flex';
             }
         }
 
         function acceptAgeWarning() {
             try {
-                localStorage.setItem('foxxhub_18plus', 'true');
+                localStorage.setItem('2pbvage_18plus', 'true');
             } catch(e){}
             var ageModal = document.getElementById('age-modal');
             if (ageModal) {
-                ageModal.style.setProperty('display', 'none', 'important');
+                ageModal.style.display = 'none';
             }
         }
 
@@ -573,7 +561,7 @@
                     { name: "Aishah Sofey", avatar: AISHAH_AVATAR }
                 ],
                 date: "12 Ekim 2026", 
-                desc: "Sophie Rain and Aishah Sofey kameralar karşısında eğlenceli ve özel ortak şov yaşatıyor.", 
+                desc: "Sophie Rain ve Aishah Sofey kameralar karşısında eğlenceli ve özel ortak şov yaşatıyor.", 
                 cats: ["amateur", "fullhd", "lesbian"],
                 tags: ["sophierain", "aishahsofey", "lezbiyen", "amatör", "fullhd", "collab"] 
             },
@@ -604,11 +592,11 @@
         var currentUser = null;
 
         function initStorageUsers() {
-            var users = JSON.parse(localStorage.getItem('foxxhub_users') || '[]');
+            var users = JSON.parse(localStorage.getItem('2pbvage_users') || '[]');
             var founderExists = users.some(function(u) { return u.email === OWNER_EMAIL.toLowerCase(); });
             if(!founderExists) {
                 users.push({ username: OWNER_USERNAME, email: OWNER_EMAIL.toLowerCase(), pass: OWNER_PASSWORD });
-                localStorage.setItem('foxxhub_users', JSON.stringify(users));
+                localStorage.setItem('2pbvage_users', JSON.stringify(users));
             }
         }
         initStorageUsers();
@@ -859,7 +847,7 @@
         }
 
         function checkAuth() {
-            var session = localStorage.getItem('foxxhub_session');
+            var session = localStorage.getItem('2pbvage_session');
             if(session) {
                 currentUser = JSON.parse(session);
 
@@ -916,18 +904,18 @@
             var pass = document.getElementById('login-password').value.trim();
 
             if(email === OWNER_EMAIL.toLowerCase() && (pass === OWNER_PASSWORD || pass === "123")) {
-                localStorage.setItem('foxxhub_session', JSON.stringify({ email: OWNER_EMAIL.toLowerCase(), username: OWNER_USERNAME }));
+                localStorage.setItem('2pbvage_session', JSON.stringify({ email: OWNER_EMAIL.toLowerCase(), username: OWNER_USERNAME }));
                 checkAuth();
                 closeAuthModal();
                 alert("Kurucu olarak başarıyla giriş yapıldı!");
                 return;
             }
 
-            var users = JSON.parse(localStorage.getItem('foxxhub_users') || '[]');
+            var users = JSON.parse(localStorage.getItem('2pbvage_users') || '[]');
             var found = users.find(function(u) { return u.email === email && u.pass === pass; });
 
             if(found) {
-                localStorage.setItem('foxxhub_session', JSON.stringify({ email: found.email, username: found.username }));
+                localStorage.setItem('2pbvage_session', JSON.stringify({ email: found.email, username: found.username }));
                 checkAuth();
                 closeAuthModal();
                 alert("Başarıyla giriş yapıldı!");
@@ -942,7 +930,7 @@
             var email = document.getElementById('reg-email').value.trim().toLowerCase();
             var pass = document.getElementById('reg-password').value.trim();
 
-            var users = JSON.parse(localStorage.getItem('foxxhub_users') || '[]');
+            var users = JSON.parse(localStorage.getItem('2pbvage_users') || '[]');
             if(users.some(function(u) { return u.email === email; })) {
                 alert("Bu e-posta adresi zaten kayıtlı!");
                 return;
@@ -950,8 +938,8 @@
 
             var newUser = { username: username, email: email, pass: pass };
             users.push(newUser);
-            localStorage.setItem('foxxhub_users', JSON.stringify(users));
-            localStorage.setItem('foxxhub_session', JSON.stringify({ email: email, username: username }));
+            localStorage.setItem('2pbvage_users', JSON.stringify(users));
+            localStorage.setItem('2pbvage_session', JSON.stringify({ email: email, username: username }));
             
             checkAuth();
             closeAuthModal();
@@ -959,7 +947,7 @@
         }
 
         function handleLogout() {
-            localStorage.removeItem('foxxhub_session');
+            localStorage.removeItem('2pbvage_session');
             checkAuth();
             closeProfileModal();
         }
